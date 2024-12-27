@@ -14,12 +14,10 @@ public class Solution {
         Map<Character, Integer> tMap = new HashMap<>();
 
         for(int i=0; i<s.length(); i++){
-            sMap.putIfAbsent(s.charAt(i), 0);
-            sMap.put(s.charAt(i), sMap.get(s.charAt(i))+1);
+            sMap.put(s.charAt(i), sMap.getOrDefault(s.charAt(i), 0)+1);
         }
         for(int i=0; i<t.length(); i++){
-            tMap.putIfAbsent(t.charAt(i), 0);
-            tMap.put(t.charAt(i), tMap.get(t.charAt(i))+1);
+            tMap.put(t.charAt(i), tMap.getOrDefault(t.charAt(i), 0)+1);
         }
 
         return sMap.equals(tMap);
